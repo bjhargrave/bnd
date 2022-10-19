@@ -76,9 +76,16 @@ jobs:
         java:
         - '8'
         - '18'
+        gradle:
+        - 'wrapper'
         runner:
         - 'xvfb-run --auto-servernum {0}'
-    name: Rebuild JDK${{ matrix.java }} ${{ matrix.os }}
+        include:
+        - os: 'ubuntu-latest'
+          java: '19'
+          gradle: 'release-nightly'
+          runner: 'xvfb-run --auto-servernum {0}'
+    name: Rebuild JDK${{ matrix.java }} Gradle ${{ matrix.gradle }}
     runs-on: ${{ matrix.os }}
     steps:
     - name: Git Checkout
@@ -90,6 +97,8 @@ jobs:
         java-version: ${{ matrix.java }}
     - name: Set up Gradle
       uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: ${{ matrix.gradle }}
     - name: Download dist/bundles
       uses: actions/download-artifact@v3
       with:
