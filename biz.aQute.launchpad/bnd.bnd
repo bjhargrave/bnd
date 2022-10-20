@@ -25,6 +25,11 @@ Import-Package: \
 -conditionalpackage: \
     aQute.lib.*,\
     aQute.libg.*
+# Shade the aQute.lib.* and aQute.libg.* packages
+-transformer: \
+  immediate;option=renames;package=aQute.lib.*;rename=aQute.launchpad.shaded.lib,\
+  immediate;option=renames;package=aQute.libg.*;rename=aQute.launchpad.shaded.libg
+
 
 -maven-scope: provided
 

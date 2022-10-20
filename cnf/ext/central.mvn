@@ -158,3 +158,6 @@ org.codehaus.plexus:plexus-utils:3.0.22
 org.codehaus.plexus:plexus-classworlds:2.5.2
 
 org.eclipse.platform:org.eclipse.swt.cocoa.macosx.aarch64:3.116.100
+
+# Transformer Bnd Analyzer Plugin
+org.eclipse.transformer:org.eclipse.transformer.bnd.analyzer:0.5.0

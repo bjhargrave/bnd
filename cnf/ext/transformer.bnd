@@ -1,0 +1,9 @@
+# Transform after populating bundle content but before manifest generation.
+-plugin.transformer.analyzer: aQute.bnd.service.AnalyzerPlugin;\
+ name=Transformer;\
+ command:="-transformer"
+
+# Transform after bundle is complete.
+#-plugin.transformer.verifier: aQute.bnd.service.verifier.VerifierPlugin;\
+# name=Transformer;\
+# command:="-transformer"
