@@ -45,8 +45,17 @@ jobs:
     - name: Harden Runner
       uses: step-security/harden-runner@18bf8ad2ca49c14cbb28b91346d626ccfb00c518
       with:
-        egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
-
+        disable-sudo: true
+        egress-policy: block
+        allowed-endpoints: >
+          api.adoptium.net:443
+          api.github.com:443
+          bndtools.jfrog.io:443
+          github.com:443
+          objects.githubusercontent.com:443
+          repo.maven.apache.org:443
+          scans-in.gradle.com:443
+          uploads.github.com:443
     - name: Checkout repository
       uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
     - name: Set up Java ${{ matrix.java }}
